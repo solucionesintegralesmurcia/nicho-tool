@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NichoTool Pro — Detector de Nichos Rentables</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="logo-icon">⬡</span>
+    <span class="logo-text">Nicho<em>Tool</em></span>
+  </div>
+  <nav class="sidebar-nav">
+    <button class="nav-item active" data-tab="analyzer">
+      <span class="nav-icon">🔍</span>
+      <span>Analizar Nicho</span>
+    </button>
+    <button class="nav-item" data-tab="serp">
+      <span class="nav-icon">📊</span>
+      <span>Análisis SERP</span>
+    </button>
+    <button class="nav-item" data-tab="content">
+      <span class="nav-icon">✍️</span>
+      <span>Generar Contenido</span>
+    </button>
+    <button class="nav-item" data-tab="affiliate">
+      <span class="nav-icon">🔗</span>
+      <span>Afiliados</span>
+    </button>
+    <button class="nav-item" data-tab="generator">
+      <span class="nav-icon">🚀</span>
+      <span>Generar Web</span>
+    </button>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="plan-badge">PRO</div>
+    <div class="plan-text">Plan Activo</div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main-content">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <div class="breadcrumb" id="breadcrumb">Dashboard / Analizar Nicho</div>
+    </div>
+    <div class="topbar-right">
+      <div class="status-dot"></div>
+      <span class="status-text">Sistema Online</span>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <div class="tab-content">
+
+    <!-- ═══ TAB: ANALYZER ═══ -->
+    <div class="tab-pane active" id="tab-analyzer">
+      <div class="page-header">
+        <h1>Detector de Nichos</h1>
+        <p>Introduce una keyword y obtén 50+ variaciones con scoring SEO automático</p>
+      </div>
+
+      <div class="search-card">
+        <div class="search-row">
+          <input type="text" id="kwInput" class="search-input" placeholder="ej: auriculares gaming, silla ergonómica, robot aspirador..." />
+          <button class="btn-primary" id="btnAnalyze">
+            <span class="btn-icon">⚡</span>
+            Analizar
+          </button>
+        </div>
+        <div class="search-tags">
+          <span class="tag" onclick="setKw('auriculares gaming')">auriculares gaming</span>
+          <span class="tag" onclick="setKw('silla ergonómica')">silla ergonómica</span>
+          <span class="tag" onclick="setKw('robot aspirador')">robot aspirador</span>
+          <span class="tag" onclick="setKw('monitor 4k')">monitor 4k</span>
+          <span class="tag" onclick="setKw('cafetera espresso')">cafetera espresso</span>
+        </div>
+      </div>
+
+      <div id="analyzerResults" class="hidden">
+        <div class="stats-row" id="statsRow"></div>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="ENTRAR">✅ Entrar</button>
+          <button class="filter-btn" data-filter="PROBAR">⚡ Probar</button>
+          <button class="filter-btn" data-filter="DESCARTAR">❌ Descartar</button>
+          <button class="filter-btn" data-filter="intent">💰 Con intención</button>
+        </div>
+        <div class="keywords-grid" id="keywordsGrid"></div>
+      </div>
+
+      <div class="loader hidden" id="analyzerLoader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Buscando keywords y calculando scores...</div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: SERP ═══ -->
+    <div class="tab-pane hidden" id="tab-serp">
+      <div class="page-header">
+        <h1>Análisis SERP Real</h1>
+        <p>Analiza los 10 primeros resultados de Google y detecta oportunidades</p>
+      </div>
+
+      <div class="search-card">
+        <div class="search-row">
+          <input type="text" id="serpInput" class="search-input" placeholder="Keyword a analizar en Google..." />
+          <button class="btn-primary" id="btnSerp">
+            <span class="btn-icon">📊</span>
+            Analizar SERP
+          </button>
+        </div>
+      </div>
+
+      <div class="loader hidden" id="serpLoader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Analizando resultados de Google...</div>
+      </div>
+
+      <div id="serpResults" class="hidden"></div>
+    </div>
+
+    <!-- ═══ TAB: CONTENT ═══ -->
+    <div class="tab-pane hidden" id="tab-content">
+      <div class="page-header">
+        <h1>Generador de Contenido SEO</h1>
+        <p>Crea artículos optimizados con estructura H1/H2/H3, meta y schema markup</p>
+      </div>
+
+      <div class="search-card">
+        <div class="search-row">
+          <input type="text" id="contentInput" class="search-input" placeholder="Keyword para generar el artículo..." />
+          <button class="btn-primary" id="btnContent">
+            <span class="btn-icon">✍️</span>
+            Generar
+          </button>
+        </div>
+      </div>
+
+      <div class="loader hidden" id="contentLoader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Generando contenido SEO optimizado...</div>
+      </div>
+
+      <div id="contentResults" class="hidden"></div>
+    </div>
+
+    <!-- ═══ TAB: AFFILIATE ═══ -->
+    <div class="tab-pane hidden" id="tab-affiliate">
+      <div class="page-header">
+        <h1>Procesador de Afiliados</h1>
+        <p>Convierte enlaces de Amazon/AliExpress y extrae datos del producto</p>
+      </div>
+
+      <div class="search-card">
+        <div class="form-group">
+          <label>Enlace del producto</label>
+          <input type="url" id="affiliateUrl" class="search-input" placeholder="https://www.amazon.es/dp/B08..." />
+        </div>
+        <div class="form-group">
+          <label>Tu ID de afiliado</label>
+          <input type="text" id="affiliateId" class="search-input small" placeholder="tu-id-21" />
+        </div>
+        <button class="btn-primary" id="btnAffiliate">
+          <span class="btn-icon">🔗</span>
+          Procesar enlace
+        </button>
+      </div>
+
+      <div class="loader hidden" id="affiliateLoader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Extrayendo datos del producto...</div>
+      </div>
+
+      <div id="affiliateResults" class="hidden"></div>
+    </div>
+
+    <!-- ═══ TAB: GENERATOR ═══ -->
+    <div class="tab-pane hidden" id="tab-generator">
+      <div class="page-header">
+        <h1>Generador de Webs</h1>
+        <p>Crea páginas HTML completas y optimizadas para afiliación listas para publicar</p>
+      </div>
+
+      <div class="search-card">
+        <div class="form-group">
+          <label>Keyword principal</label>
+          <input type="text" id="genKeyword" class="search-input" placeholder="ej: mejores auriculares gaming 2025" />
+        </div>
+        <div class="form-group">
+          <label>Enlace de producto afiliado (opcional)</label>
+          <input type="url" id="genAffUrl" class="search-input" placeholder="https://www.amazon.es/dp/..." />
+        </div>
+        <div class="form-group">
+          <label>ID de afiliado (opcional)</label>
+          <input type="text" id="genAffId" class="search-input small" placeholder="tu-id-21" />
+        </div>
+        <button class="btn-primary" id="btnGenerate">
+          <span class="btn-icon">🚀</span>
+          Generar Web Completa
+        </button>
+      </div>
+
+      <div class="loader hidden" id="generatorLoader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Construyendo tu web de afiliación...</div>
+      </div>
+
+      <div id="generatorResults" class="hidden"></div>
+    </div>
+
+  </div><!-- /tab-content -->
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
