@@ -6,6 +6,16 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 
+// 🔥 RESPUESTA RÁPIDA PARA RENDER (CLAVE)
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+// 🔥 HEALTH CHECK (Render lo usa internamente)
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 const patrones = [
   "mejor","opiniones","barato","calidad precio",
   "comparativa","vs","review","merece la pena"
