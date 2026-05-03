@@ -602,3 +602,23 @@ function downloadHTML(html, filename) {
 
 // ─── INIT ───
 console.log('🚀 NichoTool Pro v2.0 loaded');
+
+// ─── GUIDE NAVIGATION ───
+function goTab(tab) {
+  $$('.nav-item').forEach(b => b.classList.remove('active'));
+  const btn = $(`[data-tab="${tab}"]`);
+  if (btn) btn.classList.add('active');
+  $$('.tab-pane').forEach(p => p.classList.add('hidden'));
+  const pane = $(`#tab-${tab}`);
+  if (pane) pane.classList.remove('hidden');
+  const labels = {
+    guia: 'Cómo funciona',
+    analyzer: 'Paso 1 — Buscar Keywords',
+    serp: 'Paso 2 — Ver Competencia',
+    content: 'Paso 3 — Crear Artículo',
+    affiliate: 'Paso 4 — Enlace Afiliado',
+    generator: 'Paso 5 — Generar Web'
+  };
+  $('#breadcrumb').textContent = `Dashboard / ${labels[tab] || tab}`;
+  $('#sidebar').classList.remove('open');
+}

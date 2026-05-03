@@ -17,25 +17,34 @@
     <span class="logo-text">Nicho<em>Tool</em></span>
   </div>
   <nav class="sidebar-nav">
+
+    <button class="nav-item" data-tab="guia">
+      <span class="nav-icon">📖</span>
+      <span>Cómo funciona</span>
+    </button>
+
+    <div class="nav-divider"></div>
+    <div class="nav-section-label">HERRAMIENTAS</div>
+
     <button class="nav-item active" data-tab="analyzer">
       <span class="nav-icon">🔍</span>
-      <span>Analizar Nicho</span>
+      <span>1. Buscar Keywords</span>
     </button>
     <button class="nav-item" data-tab="serp">
       <span class="nav-icon">📊</span>
-      <span>Análisis SERP</span>
+      <span>2. Ver Competencia</span>
     </button>
     <button class="nav-item" data-tab="content">
       <span class="nav-icon">✍️</span>
-      <span>Generar Contenido</span>
+      <span>3. Crear Artículo</span>
     </button>
     <button class="nav-item" data-tab="affiliate">
       <span class="nav-icon">🔗</span>
-      <span>Afiliados</span>
+      <span>4. Enlace Afiliado</span>
     </button>
     <button class="nav-item" data-tab="generator">
       <span class="nav-icon">🚀</span>
-      <span>Generar Web</span>
+      <span>5. Generar Web</span>
     </button>
   </nav>
   <div class="sidebar-footer">
@@ -47,11 +56,10 @@
 <!-- MAIN -->
 <main class="main-content">
 
-  <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-left">
       <button class="menu-toggle" id="menuToggle">☰</button>
-      <div class="breadcrumb" id="breadcrumb">Dashboard / Analizar Nicho</div>
+      <div class="breadcrumb" id="breadcrumb">Dashboard / Buscar Keywords</div>
     </div>
     <div class="topbar-right">
       <div class="status-dot"></div>
@@ -59,19 +67,123 @@
     </div>
   </header>
 
-  <!-- TABS -->
   <div class="tab-content">
+
+    <!-- ═══ GUÍA ═══ -->
+    <div class="tab-pane hidden" id="tab-guia">
+      <div class="page-header">
+        <h1>¿Cómo funciona NichoTool?</h1>
+        <p>Sigue estos 5 pasos para crear una web de afiliación que genere ingresos pasivos</p>
+      </div>
+
+      <div class="guide-intro">
+        <div class="guide-intro-icon">💡</div>
+        <div>
+          <strong>¿Qué es una web de afiliación?</strong>
+          <p>Es una web donde escribes sobre productos (ej: "los mejores auriculares gaming") y cuando alguien hace clic en tu enlace y compra en Amazon, tú ganas una comisión del 3-10% automáticamente, sin vender ni enviar nada tú mismo.</p>
+        </div>
+      </div>
+
+      <div class="steps-guide">
+
+        <div class="step-card" onclick="goTab('analyzer')">
+          <div class="step-number">1</div>
+          <div class="step-icon">🔍</div>
+          <div class="step-body">
+            <div class="step-title">Buscar Keywords rentables</div>
+            <div class="step-desc">Escribe un tipo de producto y la herramienta busca en Google las variaciones más buscadas. Elige las marcadas con ✅ <strong>ENTRAR</strong>: poca competencia y gente buscando comprar.</div>
+            <div class="step-example">Escribes: <code>robot aspirador</code> → Obtienes: <code>mejor robot aspirador barato 2025</code> ✅ ENTRAR (score 78)</div>
+          </div>
+          <div class="step-arrow">→</div>
+        </div>
+
+        <div class="step-card" onclick="goTab('serp')">
+          <div class="step-number">2</div>
+          <div class="step-icon">📊</div>
+          <div class="step-body">
+            <div class="step-title">Comprobar la competencia en Google</div>
+            <div class="step-desc">Pega la keyword elegida y verás quién aparece ahora mismo en Google. Si hay foros, blogs pequeños o webs desconocidas → <strong>fácil de superar</strong>. Si hay Amazon o Wikipedia → elige otra keyword.</div>
+            <div class="step-example">🟢 Oportunidad <span class="badge-example alta">ALTA</span> = adelante &nbsp; 🔴 <span class="badge-example baja">BAJA</span> = busca otra keyword</div>
+          </div>
+          <div class="step-arrow">→</div>
+        </div>
+
+        <div class="step-card" onclick="goTab('content')">
+          <div class="step-number">3</div>
+          <div class="step-icon">✍️</div>
+          <div class="step-body">
+            <div class="step-title">Generar el artículo automáticamente</div>
+            <div class="step-desc">Pon la keyword y la herramienta escribe el artículo completo: título, descripción para Google, todas las secciones y el texto. Solo cópialo y ajústalo si quieres.</div>
+            <div class="step-example">Genera: título SEO + descripción Google + 8 secciones + 1.000 palabras de contenido listo para publicar</div>
+          </div>
+          <div class="step-arrow">→</div>
+        </div>
+
+        <div class="step-card" onclick="goTab('affiliate')">
+          <div class="step-number">4</div>
+          <div class="step-icon">🔗</div>
+          <div class="step-body">
+            <div class="step-title">Crear tu enlace con comisión</div>
+            <div class="step-desc">Ve a Amazon, busca el producto, copia la URL y pégala aquí con tu ID de afiliado. La herramienta crea el enlace que te da comisión y extrae automáticamente la imagen y precio del producto.</div>
+            <div class="step-example">Tu ID de afiliado es gratis: regístrate en <strong>afiliados.amazon.es</strong> → formato: <code>tunombre-21</code></div>
+          </div>
+          <div class="step-arrow">→</div>
+        </div>
+
+        <div class="step-card" onclick="goTab('generator')">
+          <div class="step-number">5</div>
+          <div class="step-icon">🚀</div>
+          <div class="step-body">
+            <div class="step-title">Generar y descargar la web</div>
+            <div class="step-desc">Pon la keyword y el enlace de Amazon y la herramienta crea una página web completa lista para subir a tu hosting. Tiene el artículo, la ficha del producto y todo el SEO técnico incluido.</div>
+            <div class="step-example">Resultado: un archivo <code>.html</code> que subes a tu dominio y empieza a posicionarse en Google</div>
+          </div>
+          <div class="step-arrow">✅</div>
+        </div>
+
+      </div>
+
+      <div class="guide-faq">
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq-item">
+          <div class="faq-q">¿Necesito saber programar o diseñar webs?</div>
+          <div class="faq-a">No. La herramienta genera todo automáticamente. Solo necesitas un dominio (desde 10€/año) y un hosting (desde 3€/mes) donde subir el archivo.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Cuánto se puede ganar?</div>
+          <div class="faq-a">Amazon paga 3-10% de comisión. Con una web que recibe 1.000 visitas/mes y convierte al 2%, puedes ganar entre 100-500€/mes por web. Con varias webs se multiplica.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Qué producto elijo para empezar?</div>
+          <div class="faq-a">Algo físico que conozcas: electrodomésticos, gadgets, deporte, cocina, jardinería... Evita lo muy genérico ("móviles") y busca algo específico ("cafetera espresso automática para casa").</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Qué significa la puntuación de las keywords?</div>
+          <div class="faq-a"><strong>70-100 = ✅ ENTRAR</strong> (buena oportunidad, poca competencia, gente comprando) · <strong>45-69 = ⚡ PROBAR</strong> (analiza la competencia) · <strong>0-44 = ❌ DESCARTAR</strong> (muy difícil o sin búsquedas).</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:32px; padding-bottom:32px">
+        <button class="btn-primary" style="margin:auto; font-size:1rem; padding:16px 32px" onclick="goTab('analyzer')">
+          <span>🚀</span> Empezar — Buscar Keywords
+        </button>
+      </div>
+    </div>
 
     <!-- ═══ TAB: ANALYZER ═══ -->
     <div class="tab-pane active" id="tab-analyzer">
       <div class="page-header">
-        <h1>Detector de Nichos</h1>
-        <p>Introduce una keyword y obtén 50+ variaciones con scoring SEO automático</p>
+        <h1>Paso 1 — Buscar Keywords</h1>
+        <p>Escribe un tipo de producto y encontramos las mejores palabras clave para posicionarte en Google</p>
+      </div>
+
+      <div class="tip-box">
+        💡 <strong>¿Qué escribir aquí?</strong> Un producto físico genérico que se venda en Amazon: <em>robot aspirador, cafetera espresso, auriculares gaming, silla ergonómica, aire acondicionado portátil...</em>
       </div>
 
       <div class="search-card">
         <div class="search-row">
-          <input type="text" id="kwInput" class="search-input" placeholder="ej: auriculares gaming, silla ergonómica, robot aspirador..." />
+          <input type="text" id="kwInput" class="search-input" placeholder="ej: robot aspirador, cafetera espresso, auriculares gaming..." />
           <button class="btn-primary" id="btnAnalyze">
             <span class="btn-icon">⚡</span>
             Analizar
@@ -87,43 +199,54 @@
       </div>
 
       <div id="analyzerResults" class="hidden">
+        <div class="tip-box" style="margin-bottom:16px">
+          ✅ <strong>ENTRAR</strong> = poca competencia + gente buscando comprar → úsala en el paso 2 &nbsp;|&nbsp;
+          ⚡ <strong>PROBAR</strong> = analiza primero la competencia &nbsp;|&nbsp;
+          ❌ <strong>DESCARTAR</strong> = demasiado difícil
+        </div>
         <div class="stats-row" id="statsRow"></div>
         <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="ENTRAR">✅ Entrar</button>
+          <button class="filter-btn active" data-filter="all">Todas</button>
+          <button class="filter-btn" data-filter="ENTRAR">✅ Las mejores (ENTRAR)</button>
           <button class="filter-btn" data-filter="PROBAR">⚡ Probar</button>
           <button class="filter-btn" data-filter="DESCARTAR">❌ Descartar</button>
-          <button class="filter-btn" data-filter="intent">💰 Con intención</button>
+          <button class="filter-btn" data-filter="intent">💰 Intención de compra</button>
         </div>
         <div class="keywords-grid" id="keywordsGrid"></div>
       </div>
 
       <div class="loader hidden" id="analyzerLoader">
         <div class="loader-spinner"></div>
-        <div class="loader-text">Buscando keywords y calculando scores...</div>
+        <div class="loader-text">Buscando keywords en Google y calculando puntuaciones...</div>
       </div>
     </div>
 
     <!-- ═══ TAB: SERP ═══ -->
     <div class="tab-pane hidden" id="tab-serp">
       <div class="page-header">
-        <h1>Análisis SERP Real</h1>
-        <p>Analiza los 10 primeros resultados de Google y detecta oportunidades</p>
+        <h1>Paso 2 — Ver la Competencia</h1>
+        <p>Comprueba quién aparece en Google para tu keyword y decide si tienes posibilidades</p>
+      </div>
+
+      <div class="tip-box">
+        💡 <strong>¿Qué pegar aquí?</strong> Copia una keyword con ✅ ENTRAR del paso anterior. Verás los 10 primeros resultados de Google y si puedes superarlos.<br><br>
+        🟢 <strong>Buena señal:</strong> aparecen foros (Reddit, Quora), blogs pequeños, webs desconocidas<br>
+        🔴 <strong>Mala señal:</strong> Amazon, Wikipedia y periódicos grandes ocupan todos los puestos
       </div>
 
       <div class="search-card">
         <div class="search-row">
-          <input type="text" id="serpInput" class="search-input" placeholder="Keyword a analizar en Google..." />
+          <input type="text" id="serpInput" class="search-input" placeholder="Pega aquí la keyword del paso 1, ej: mejor robot aspirador barato 2025" />
           <button class="btn-primary" id="btnSerp">
             <span class="btn-icon">📊</span>
-            Analizar SERP
+            Ver competencia
           </button>
         </div>
       </div>
 
       <div class="loader hidden" id="serpLoader">
         <div class="loader-spinner"></div>
-        <div class="loader-text">Analizando resultados de Google...</div>
+        <div class="loader-text">Analizando los 10 primeros resultados de Google...</div>
       </div>
 
       <div id="serpResults" class="hidden"></div>
@@ -132,23 +255,27 @@
     <!-- ═══ TAB: CONTENT ═══ -->
     <div class="tab-pane hidden" id="tab-content">
       <div class="page-header">
-        <h1>Generador de Contenido SEO</h1>
-        <p>Crea artículos optimizados con estructura H1/H2/H3, meta y schema markup</p>
+        <h1>Paso 3 — Crear el Artículo</h1>
+        <p>Genera un artículo SEO completo automáticamente listo para publicar en tu web</p>
+      </div>
+
+      <div class="tip-box">
+        💡 <strong>¿Qué keyword usar?</strong> La misma del paso 1 que tenía buena puntuación y poca competencia en el paso 2. La herramienta escribe el artículo completo por ti en segundos.
       </div>
 
       <div class="search-card">
         <div class="search-row">
-          <input type="text" id="contentInput" class="search-input" placeholder="Keyword para generar el artículo..." />
+          <input type="text" id="contentInput" class="search-input" placeholder="Ej: mejor robot aspirador barato 2025" />
           <button class="btn-primary" id="btnContent">
             <span class="btn-icon">✍️</span>
-            Generar
+            Generar artículo
           </button>
         </div>
       </div>
 
       <div class="loader hidden" id="contentLoader">
         <div class="loader-spinner"></div>
-        <div class="loader-text">Generando contenido SEO optimizado...</div>
+        <div class="loader-text">Escribiendo tu artículo SEO optimizado...</div>
       </div>
 
       <div id="contentResults" class="hidden"></div>
@@ -157,28 +284,37 @@
     <!-- ═══ TAB: AFFILIATE ═══ -->
     <div class="tab-pane hidden" id="tab-affiliate">
       <div class="page-header">
-        <h1>Procesador de Afiliados</h1>
-        <p>Convierte enlaces de Amazon/AliExpress y extrae datos del producto</p>
+        <h1>Paso 4 — Crear Enlace de Afiliado</h1>
+        <p>Transforma el enlace de Amazon en un enlace que te da comisión cuando alguien compra</p>
+      </div>
+
+      <div class="tip-box">
+        💡 <strong>¿Cómo obtengo el enlace de Amazon?</strong><br>
+        1. Ve a <strong>amazon.es</strong> y busca el producto del que vas a escribir<br>
+        2. Entra en la página del producto<br>
+        3. Copia la URL completa de la barra del navegador<br>
+        4. Pégala aquí abajo<br><br>
+        💡 <strong>¿Dónde está mi ID de afiliado?</strong> Regístrate gratis en <strong>afiliados.amazon.es</strong>. Tu ID tiene este formato: <code>tunombre-21</code>
       </div>
 
       <div class="search-card">
         <div class="form-group">
-          <label>Enlace del producto</label>
-          <input type="url" id="affiliateUrl" class="search-input" placeholder="https://www.amazon.es/dp/B08..." />
+          <label>URL del producto en Amazon o AliExpress</label>
+          <input type="url" id="affiliateUrl" class="search-input" placeholder="https://www.amazon.es/dp/B08ABCDEF..." />
         </div>
         <div class="form-group">
-          <label>Tu ID de afiliado</label>
-          <input type="text" id="affiliateId" class="search-input small" placeholder="tu-id-21" />
+          <label>Tu ID de afiliado de Amazon (opcional)</label>
+          <input type="text" id="affiliateId" class="search-input small" placeholder="tunombre-21" />
         </div>
         <button class="btn-primary" id="btnAffiliate">
           <span class="btn-icon">🔗</span>
-          Procesar enlace
+          Generar enlace con comisión
         </button>
       </div>
 
       <div class="loader hidden" id="affiliateLoader">
         <div class="loader-spinner"></div>
-        <div class="loader-text">Extrayendo datos del producto...</div>
+        <div class="loader-text">Procesando el producto y generando tu enlace...</div>
       </div>
 
       <div id="affiliateResults" class="hidden"></div>
@@ -187,26 +323,33 @@
     <!-- ═══ TAB: GENERATOR ═══ -->
     <div class="tab-pane hidden" id="tab-generator">
       <div class="page-header">
-        <h1>Generador de Webs</h1>
-        <p>Crea páginas HTML completas y optimizadas para afiliación listas para publicar</p>
+        <h1>Paso 5 — Generar la Web Completa</h1>
+        <p>Crea una página web lista para descargar y subir a tu hosting</p>
+      </div>
+
+      <div class="tip-box">
+        💡 <strong>¿Qué necesitas?</strong><br>
+        · La <strong>keyword</strong> del paso 1 (ej: <em>mejor robot aspirador barato 2025</em>)<br>
+        · El <strong>enlace de afiliado</strong> del paso 4 (opcional pero recomendado)<br><br>
+        El resultado es un archivo <code>.html</code> que subes directamente a tu hosting y ya funciona.
       </div>
 
       <div class="search-card">
         <div class="form-group">
-          <label>Keyword principal</label>
-          <input type="text" id="genKeyword" class="search-input" placeholder="ej: mejores auriculares gaming 2025" />
+          <label>Keyword principal (del paso 1)</label>
+          <input type="text" id="genKeyword" class="search-input" placeholder="ej: mejor robot aspirador barato 2025" />
         </div>
         <div class="form-group">
-          <label>Enlace de producto afiliado (opcional)</label>
-          <input type="url" id="genAffUrl" class="search-input" placeholder="https://www.amazon.es/dp/..." />
+          <label>Enlace de Amazon con tu comisión (del paso 4 — opcional)</label>
+          <input type="url" id="genAffUrl" class="search-input" placeholder="https://www.amazon.es/dp/...?tag=tunombre-21" />
         </div>
         <div class="form-group">
-          <label>ID de afiliado (opcional)</label>
-          <input type="text" id="genAffId" class="search-input small" placeholder="tu-id-21" />
+          <label>Tu ID de afiliado (opcional)</label>
+          <input type="text" id="genAffId" class="search-input small" placeholder="tunombre-21" />
         </div>
         <button class="btn-primary" id="btnGenerate">
           <span class="btn-icon">🚀</span>
-          Generar Web Completa
+          Generar y descargar web
         </button>
       </div>
 
@@ -218,12 +361,10 @@
       <div id="generatorResults" class="hidden"></div>
     </div>
 
-  </div><!-- /tab-content -->
+  </div>
 </main>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
-
 <script src="app.js"></script>
 </body>
 </html>
