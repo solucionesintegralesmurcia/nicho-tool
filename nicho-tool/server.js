@@ -89,6 +89,8 @@ app.post("/analizar", async (req, res) => {
   res.json(resultados);
 });
 
-app.listen(3000, () => {
-  console.log("Servidor en http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Servidor listo en puerto " + PORT);
 });
